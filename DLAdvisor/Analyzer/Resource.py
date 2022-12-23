@@ -1,16 +1,27 @@
+class EmptyResourceError(Exception):
+    pass
+
+
 class Resource:
-   
+
     def __init__(self,stage,resources):
         self.stage = stage
         self.resources = resources
         
     def display(self):
-        print("Resouces List : ")
-        for r in self.resources :
-            print('- ' + r[0] + ' [' +
-                  self.checkResourceType(r[1]) +
-                  '] : ' + r[1])
-    
+        try :
+            if len(self.resources) == 0 :
+                raise EmptyResourceError("Empty Resources!")
+            
+            print("Resouces List : ")
+            for r in self.resources :
+                print('- ' + r[0] + ' [' +
+                    self.checkResourceType(r[1]) +
+                    '] : ' + r[1])
+        except Exception as ex :
+            print("Exception occurred :",ex)
+            
+
     def checkResourceType(self,resourceslink) :
         if ("youtube.com" in resourceslink) :
             return "YOUTUBE"

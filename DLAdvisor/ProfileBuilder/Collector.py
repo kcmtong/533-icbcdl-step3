@@ -2,6 +2,9 @@ from .UserProfile import UserProfile
 import datetime
 from datetime import date
 
+class AgeTooLargeError(Exception) :
+    pass
+
 # This fuction will greet the applicant based onthe time of the day
 def greeting():
     currentTime = datetime.datetime.now()
@@ -16,6 +19,8 @@ def greeting():
 def calculateAge(dateEntry):
     days_in_year = 365.2425  
     age = int((date.today() - dateEntry).days / days_in_year)
+    if age > 150 :
+        raise AgeTooLargeError("Your input age : ",age,"!, please double check!")
     return age
        
 # This function takes input from user to create profile and check eligibility
@@ -42,6 +47,7 @@ def passBasicEligibility():
         month=int(birthday_list[1])
         year=int(birthday_list[2])
         age = calculateAge(date(year, month, day)) #applicant age
+
         if (age < 16) :
             print("Your age is",age,"which is below 16 yrs, so you are not eligible for BC Driving license")
             return False
@@ -85,15 +91,18 @@ def passBasicEligibility():
         #else:
         #    drivingYears = 0 #driving years
         return True
-    except:
-        print("An exception occurred")
+    except Exception as ex:
+        print("An exception occurred : ",ex)
 
 # After taking input from user in passBasicEligibility() it then constructs the UserProfile object
 # call class modeule in the same pkg
 # Return UserProfile object
 def gatherProfile():
-    profile = UserProfile(name,haveICBCLicense,wantToExchange,reciprocal,stage)
-    #print(profile)
-    #UserProfile(self,name,current_icbc_lic,is_dl_exchange,is_recip_country,stage)
-    return profile
-
+    try :
+        profile = UserProfile(name,haveICBCLicense,wantToExchange,reciprocal,stage)
+        #print(profile)
+        #UserProfile(self,name,current_icbc_lic,is_dl_exchange,is_recip_country,stage)
+        return profile
+    except Exception as ex:
+        print("An exception occured in gatherProfile: ",ex)
+        return

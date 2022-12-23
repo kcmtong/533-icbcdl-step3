@@ -3,16 +3,27 @@ from DLAdvisor.Analyzer import Advisor
 from time import sleep
 from tqdm import tqdm
 
+class NotEligibleError(Exception):
+    pass
+
+
 def execute():
     Collector.greeting()
 #    if (!Collector.passBasicEligiblity()) :
 #        print("Sorry, not eligible! Bye!")
 #        return
-    if (not Collector.passBasicEligibility()) :
-        print("Sorry, you are not eligible!")
+
+    try :
+        if (not Collector.passBasicEligibility()) :
+            # print("Sorry, you are not eligible!")
+            raise NotEligibleError("Sorry, you're not eligible!")
+    except Exception as ex :
+        print("Exception : ",ex)
         return
-    print("Great! you are eligible to proceed!")
+    else :
+        print("Great! you are eligible to proceed!")
     
+                                   
     user = Collector.gatherProfile()    
     user.formatName()
     print("Here is your profile summary\n######" + str(user) +
