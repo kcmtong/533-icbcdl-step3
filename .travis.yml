@@ -4,3 +4,5 @@ python:
 # command to run tests
 script:
   - python TestModule1.py
+  - python TestResource.py
+  
