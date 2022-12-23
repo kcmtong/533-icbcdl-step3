@@ -1,7 +1,12 @@
 from DLAdvisor.ProfileBuilder import Collector
 from DLAdvisor.Analyzer import Resource
 
+class InvalidStageError(Exception):
+    pass
+
 def advice(stage) :
+    if stage > 5 :
+        raise InvalidStageError("Your input stage : ",stage," is invalid!")
     prepRes = populatePrepResources(stage)
     OLRes = populateOLResources(stage)
     if (stage == 1) :
@@ -21,6 +26,9 @@ def advice(stage) :
     print("########")
     
 def populatePrepResources(stage):
+    
+    if stage > 5 :
+        raise InvalidStageError("Your input stage : ",stage," is invalid!")
     
     res1 = [
         ['Knowledge Test Info','https://www.icbc.com/driver-licensing/new-drivers/Pages/Get-your-L.aspx'],
