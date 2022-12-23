@@ -51,5 +51,3 @@ class TestAdvisor(unittest.TestCase) :
     @classmethod
     def tearDownClass(cls):
         pass
-
-unittest.main()

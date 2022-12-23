@@ -37,4 +37,3 @@ class TestResource(unittest.TestCase) :
     def tearDownClass(cls):
         pass
     
-unittest.main()

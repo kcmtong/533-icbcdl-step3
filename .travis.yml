@@ -3,5 +3,4 @@ python:
   - "3.9"
 # command to run tests
 script:
-  - python TestModule1.py
-  - python TestResource.py
+  - python TestSuite.py
