@@ -3,6 +3,9 @@
 ## Background
 The objective of the BC Driver's License (DL) Advisor is to advice the BC residents the next cource of action to get BC Driving License based on the inputs from the user. 
 
+## Build Status
+[![Build Status](https://app.travis-ci.com/kcmtong/533-icbcdl-step3.svg?branch=main)](https://app.travis-ci.com/kcmtong/533-icbcdl-step3)
+
 ## Structure and Module
 The DLAdvisor package containers two subpackages, namely :
 1. Sub package - ProfileBuilder : responsible for interacting with users, collect inputs, and constructing user profile objects. This subpackage have two modules 
