@@ -45,6 +45,7 @@ class TestCollector(unittest.TestCase) :
         del(self.age2)
         del(self.age3)
         del(self.age4)
+        del(self.currentSTR)
 
     @classmethod
     def tearDownClass(cls):
