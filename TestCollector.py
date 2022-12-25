@@ -13,17 +13,27 @@ class TestCollector(unittest.TestCase) :
     def setUp(self):
         self.age1 = Collector.calculateAge(date(1980,7,18))
         self.age2 = Collector.calculateAge(date(1972,11,3))
+        self.age3 = Collector.calculateAge(date(1982,9,22))
+        self.age4 = Collector.calculateAge(date(1996,4,24))
+        self.currentSTR = Collector.greeting()
         
     def test_greeting(self):
-        # The greeting() method in the Collector contains message printing, but without and return string
-        # No testing can therefore be done here.
-        pass
+        curTime = datetime.datetime.now()
+        if curTime.hour < 12 :
+            self.assertEqual('morning',self.currentSTR)
+        elif 12 <= curTime.hour < 18 :
+            self.assertEqual('afternoon',self.currentSTR)
+        else:
+            self.assertEqual('evening',self.currentSTR)
+
     
     def test_calculateAge(self):
         self.assertEqual(42,self.age1)
         self.assertEqual(50,self.age2)
         self.assertNotEqual(40,self.age1)
         self.assertNotEqual(60,self.age2)
+        self.assertNotEqual(20,self.age3)
+        self.assertNotEqual(70,self.age4)
 
     def test_passBasicEligibility(self):
         # The passBasicEligibility() method in the Collector are mainly interactive functions which ask for ouser input and then perform validation, which can not be automated easily.  
@@ -33,6 +43,8 @@ class TestCollector(unittest.TestCase) :
     def tearDown(self):
         del(self.age1)
         del(self.age2)
+        del(self.age3)
+        del(self.age4)
 
     @classmethod
     def tearDownClass(cls):

@@ -7,13 +7,18 @@ class AgeTooLargeError(Exception) :
 
 # This fuction will greet the applicant based onthe time of the day
 def greeting():
+    global currentSTR
     currentTime = datetime.datetime.now()
     if currentTime.hour < 12 :
+        currentSTR = "morning"
         print('Good morning!')
     elif 12 <= currentTime.hour < 18 :
-         print('Good afternoon!')
+        currentSTR = "afternoon"
+        print('Good afternoon!')
     else:
-         print('Good evening!')
+        currentSTR = "evening"
+        print('Good evening!')
+    return currentSTR
 
 #Calculate no. of years from current date based on a date input (like, age, driving license yrs, etc.)
 def calculateAge(dateEntry):
