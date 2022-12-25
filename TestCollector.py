@@ -36,9 +36,8 @@ class TestCollector(unittest.TestCase) :
         self.assertNotEqual(70,self.age4)
 
     def test_passBasicEligibility(self):
-        # The passBasicEligibility() method in the Collector are mainly interactive functions which ask for ouser input and then perform validation, which can not be automated easily.  
-        # Manual testing can be done to ensure the proper user interaction behaviour.
         pass
+
     
     def tearDown(self):
         del(self.age1)
