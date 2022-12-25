@@ -37,4 +37,5 @@ class TestCollector(unittest.TestCase) :
     @classmethod
     def tearDownClass(cls):
         pass
-    
+
+unittest.main(argv=[''], verbosity=2, exit=False)
