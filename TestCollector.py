@@ -25,7 +25,6 @@ class TestCollector(unittest.TestCase) :
             self.assertEqual('afternoon',self.currentSTR)
         else:
             self.assertEqual('evening',self.currentSTR)
-
     
     def test_calculateAge(self):
         self.assertEqual(42,self.age1)
@@ -37,7 +36,6 @@ class TestCollector(unittest.TestCase) :
 
     def test_passBasicEligibility(self):
         pass
-
     
     def tearDown(self):
         del(self.age1)
