@@ -14,4 +14,6 @@ def my_suite():
     runner = unittest.TextTestRunner()
     print(runner.run(suite))
 
+unittest.main(argv=[''], verbosity=2, exit=False)
+    
 my_suite()
